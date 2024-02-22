@@ -1,0 +1,85 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f8ff; /* Light blue background */
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Adjust this value to match the cropped height of your image */
+    overflow: hidden; /* This will crop the image */
+}
+
+.header img {
+    width: 100%;
+    height: auto;
+}
+
+.image-credit {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px; /* Increased font size for image credit */
+}
+
+.sidebar {
+    position: absolute;
+    left: 0;
+    top: 320px; /* Adjust based on the height of your header image */
+    width: 20%; /* Increased width to accommodate longer phrases */
+    padding: 20px;
+    text-align: center; /* Center the content */
+    font-size: 18px; /* Increased font size for sidebar text */
+    border-radius: 15px; /* Rounded corners for a softer look */
+    background-color: #f9f9f9; /* Light background for the sidebar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow for depth */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Evenly space out the content */
+}
+
+
+
+.container {
+    text-align: left;
+    width: 60%;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #ffffff; /* White background for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-left: 20%; /* Shifts the main content to the right */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 0.5em;
+    font-size: 36px; /* Increased font size for the main title */
+}
+
+h2 {
+    color: #555;
+    margin-top: 1.5em;
+    font-size: 28px; /* Increased font size for subtitles */
+}
+
+p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 18px; /* Increased font size for paragraph text */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px; /* Increased font size for links */
+}
