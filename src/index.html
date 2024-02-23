@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="h-full bg-black">
+
+<head>
+    <title>a09-1</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+
+</head>
+
+<body class="h-full m-0 p-0">
+    <div class="grid  px-32">
+        <!-- Your content goes here -->
+        <div class=" flex flex-1 flex-col items-center justify-center text-6xl text-center h-[50vh]">
+            <h1 class=" text-white text-3xltext-4xl font-bold text-gray-800 headerText">Evidence-Based Generative AI for
+                Complex Political
+                Misinformation Detection</h1>
+
+            <div class="flex flex-row gap-20 text-red-300 mt-10">
+                <span class="mt-2 text-lg">Yiling Cao </br> yic055@ucsd.edu </span>
+                <span class="mt-2 text-lg">Oren Ciolli </br> ociolli@ucsd.edu</span>
+                <span class="mt-2 text-lg">Zhixing Jiang </br> zhj003@ucsd.edu</span>
+                <span class="mt-2 text-lg">Jun Linwu </br> julinwu@ucsd.edu </span>
+
+            </div>
+        </div>
+        <div class="flex flex-1 h-[700px] bg-red-800">
+            <img class="w-full h-full"
+                src="https://www.shutterstock.com/shutterstock/photos/2312774795/display_1500/stock-vector-fake-news-trendy-vintage-collage-conception-halftone-lips-eyes-hands-retro-newspaper-and-torn-2312774795.jpg"
+                alt="Header Image"></img>
+        </div>
+
+        <div class="grid grid-cols-12 pt-10">
+            <div class="col-span-9 mr-10">
+                <!-- main content -->
+                <div class="text-white">
+                    <h2 class=" font-bold text-3xl mt-4">Overview</h2>
+                    <p class="mt-5">In an era marked by the rapid dissemination of misinformation and disinformation, the
+                        need for effective fact-checking methodologies has never been more pressing. Traditional
+                        fact-checking approaches, while valuable, suffer from limitations such as time-consuming
+                        manual processes and lack of contextual explanation for classifications. This paper proposes
+                        a novel approach to fact-checking by leveraging Large Language Models (LLMs) within
+                        a multi-model pipeline to provide both veracity labels and informative explanations for
+                        claims. Building upon previous research, we integrate various predictive AI models and
+                        external evidence from reliable sources to enhance the contextuality and accuracy of our
+                        predictions.</p>
+                    <h2 class=" font-bold text-3xl mt-4">Data</h2>
+                    <ul class="list-disc">
+                        <li class="m-5">The Liar-Liar-Plus dataset represents an expanded iteration derived from the foundational
+                            Liar-Liar dataset, encompassing a comprehensive array of 16 distinct features. Among these
+                            features are notable elements such as historical evaluations, subject matter, party
+                            affiliation, justification, and various others. Comprising a training set with 10,242
+                            instances, a validation set containing 1,284 instances, and a test set comprising 1,267
+                            instances, the Liar-Liar-Plus dataset presents a well-structured resource for training,
+                            validating, and testing. Comparing to the original Liar-Liar dataset, the Liar-Liar Plus
+                            dataset contains more features which serves as a plus in building model. In the project,
+                            this dataset serves as the foundation for training multiple models for the factors and the
+                            baseline model for the generative AI pipeline.</li>
+                        <li class="m-5">
+                            Data from PolitiFact.com, which contains a short statement and a truth-o-meter,
+                            which labels the truthfulness of the information. The collected dataset contains 25615
+                            elements and ten attributes including statements, summaries, historical evaluations, and
+                            other features.
+                        </li>
+                    </ul>
+                    <h2 class=" font-bold text-3xl mt-4">Method</h2>
+                    <ul class="list-disc">
+                        <li class="m-5">Enrichment</li>
+                        <li class="m-5">Evidence Retrieval</li>
+                        <li class="m-5">Predictive Model</li>
+                        <li class="m-5">Generative Model</li>
+                    </ul>
+                    <h2 class=" font-bold text-3xl mt-4">Result</h2>
+                    <p class="mt-5">TODO</p>
+                    <h2 class=" font-bold text-3xl mt-4">Conclusion</h2>
+                    <p class="mt-5">TODO</p>
+                </div>
+            </div>
+            <div class="col-span-3">
+                <div class="top-10 h-[60vh] sticky border p-5 border-red-200 rounded-lg">
+                    <span class="text-white ">References</span>
+                    <div class="text-white border-b-2 w-full border-black  my-3"></div>
+                    <span class="text-white ">Sample</span>
+                    <div class="text-white border-b-2 w-full border-red-200 my-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-16">
+
+        <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+            <p class="text-xs leading-5 text-gray-400">&copy; HDSI Capstone 2024 B09-1.</p>
+        </div>
+    </div>
+</footer>
+
+</html>
