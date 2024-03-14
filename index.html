@@ -12,7 +12,8 @@
     <div class="grid  px-32">
         <!-- Your content goes here -->
         <div class=" flex flex-1 flex-col items-center justify-center text-6xl text-center h-[50vh]">
-            <h1 class=" text-white text-3xltext-4xl font-bold headerText">Evidence-Augmented LLMs For Misinformation Detection</h1>
+            <h1 class=" text-white text-3xltext-4xl font-bold headerText">Evidence-Augmented LLMs For Misinformation
+                Detection</h1>
 
             <div class="flex flex-row gap-20 text-red-300 mt-10">
                 <span class="mt-2 text-lg">Yiling Cao </br> yic055@ucsd.edu </span>
@@ -32,9 +33,9 @@
                 <div class="text-white">
                     <h2 class="font-bold text-3xl mt-4">Background</h2>
                     <div class="border-b-2 w-full border-red-200 my-3"></div>
-                    <p class="mt-5 text-lg">It was once said that “a lie gets halfway around the world before the truth
+                    <p class="mt-5 text-lg">It was once said that "a lie gets halfway around the world before the truth
                         has a
-                        chance to get its pants on.” This is more true today than ever, as misinformation and
+                        chance to get its pants on." This is more true today than ever, as misinformation and
                         disinformation are becoming increasingly pervasive and destructive, and have permanently altered
                         the political landscape. Fact check sites such as PolitiFact and Snopes have led the charge in
                         combating this misinformation thus far, but they are limited due to the simple fact that it
@@ -133,7 +134,7 @@
 
                     <p class="mt-5 text-lg">We can see that the pipeline was quite good at classifying claims of certain
                         labels,
-                        namely "mostly-true" and “pants-on-fire” claims. The fact that it performs well on
+                        namely "mostly-true" and "pants-on-fire" claims. The fact that it performs well on
                         "pants-on-fire" claims is encouraging, since this means it's able to successfully identify
                         deliberate attempts to misinform over 80% of the time. We also see that it performs abysmally on
                         some labels (barely-true), but when we take a look at the distribution of predictions (split by
@@ -142,7 +143,7 @@
                     <img class="mt-5" src="./figure/preds_dist_53.png" alt="Prediction Distribution Image">
                     <p class="mt-5 text-lg">As we can see, the model has trouble distinguishing between "nearby" labels.
                         For
-                        example, it predicted “half-true” over 80% of the time for claims which were “barely-true”. This
+                        example, it predicted "half-true" over 80% of the time for claims which were "barely-true". This
                         is an understandable mistake due to the fact that these labels are adjacent, and even to humans,
                         the difference between them is somewhat subjective. It also tended to be overzealous when it
                         came to rating claims as "pants-on-fire", as it gave this label to nearly 60% of claims that
