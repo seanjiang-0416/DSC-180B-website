@@ -12,7 +12,7 @@
     <div class="grid  px-32">
         <!-- Your content goes here -->
         <div class=" flex flex-1 flex-col items-center justify-center text-6xl text-center h-[50vh]">
-            <h1 class=" text-white text-3xltext-4xl font-bold text-gray-800 headerText">Evidence-Based Generative AI for
+            <h1 class=" text-white text-3xltext-4xl font-bold headerText">Evidence-Based Generative AI for
                 Complex Political
                 Misinformation Detection</h1>
 
@@ -24,64 +24,219 @@
 
             </div>
         </div>
-        <div class="flex flex-1 h-[700px] bg-red-800">
-            <img class="w-full h-full"
-                src="https://www.shutterstock.com/shutterstock/photos/2312774795/display_1500/stock-vector-fake-news-trendy-vintage-collage-conception-halftone-lips-eyes-hands-retro-newspaper-and-torn-2312774795.jpg"
-                alt="Header Image"></img>
+        <div class="flex flex-1 h-[700px] ">
+            <img class="w-full h-full" src="./figure/header.jpeg" alt="Header Image">
         </div>
 
         <div class="grid grid-cols-12 pt-10">
             <div class="col-span-9 mr-10">
                 <!-- main content -->
                 <div class="text-white">
-                    <h2 class=" font-bold text-3xl mt-4">Overview</h2>
-                    <p class="mt-5">In an era marked by the rapid dissemination of misinformation and disinformation, the
-                        need for effective fact-checking methodologies has never been more pressing. Traditional
-                        fact-checking approaches, while valuable, suffer from limitations such as time-consuming
-                        manual processes and lack of contextual explanation for classifications. This paper proposes
-                        a novel approach to fact-checking by leveraging Large Language Models (LLMs) within
-                        a multi-model pipeline to provide both veracity labels and informative explanations for
-                        claims. Building upon previous research, we integrate various predictive AI models and
-                        external evidence from reliable sources to enhance the contextuality and accuracy of our
-                        predictions.</p>
-                    <h2 class=" font-bold text-3xl mt-4">Data</h2>
+                    <h2 class="font-bold text-3xl mt-4">Background</h2>
+                    <div class="border-b-2 w-full border-red-200 my-3"></div>
+                    <p class="mt-5 text-lg">It was once said that “a lie gets halfway around the world before the truth
+                        has a
+                        chance to get its pants on.” This is more true today than ever, as misinformation and
+                        disinformation are becoming increasingly pervasive and destructive, and have permanently altered
+                        the political landscape. Fact check sites such as PolitiFact and Snopes have led the charge in
+                        combating this misinformation thus far, but they are limited due to the simple fact that it
+                        takes more time to fact check claims than it does to spread misinformation.
+                    </p>
+
+                    <p class="mt-5 text-lg">As a result, the need for effective automated fact-checking methodologies
+                        has never
+                        been more pressing. Traditional automated fact-checking approaches, while valuable, fall short
+                        when it comes to providing justification and context for their classifications. We propose a
+                        novel approach to fact-checking which leverages Large Language Models (LLMs) within a
+                        multi-model pipeline to provide both veracity labels and informative explanations for claims.
+                    </p>
+
+                    <h2 class="font-bold text-3xl mt-10">Our Approach</h2>
+                    <div class="border-b-2 w-full border-red-200 my-3"></div>
+                    <p class="mt-5 text-lg">Our approach is a 3-stage pipeline which uses an ensemble of predictive
+                        models and a
+                        LLM (Google's Gemini PRO 1.0) augmented by an evidence retrieval module.
+                    </p>
+                    <img class="mt-5" src="./figure/pipeline.png" alt="Pipeline Image">
+
                     <ul class="list-disc">
-                        <li class="m-5">The Liar-Liar-Plus dataset represents an expanded iteration derived from the foundational
-                            Liar-Liar dataset, encompassing a comprehensive array of 16 distinct features. Among these
-                            features are notable elements such as historical evaluations, subject matter, party
-                            affiliation, justification, and various others. Comprising a training set with 10,242
-                            instances, a validation set containing 1,284 instances, and a test set comprising 1,267
-                            instances, the Liar-Liar-Plus dataset presents a well-structured resource for training,
-                            validating, and testing. Comparing to the original Liar-Liar dataset, the Liar-Liar Plus
-                            dataset contains more features which serves as a plus in building model. In the project,
-                            this dataset serves as the foundation for training multiple models for the factors and the
-                            baseline model for the generative AI pipeline.</li>
-                        <li class="m-5">
-                            Data from PolitiFact.com, which contains a short statement and a truth-o-meter,
-                            which labels the truthfulness of the information. The collected dataset contains 25615
-                            elements and ten attributes including statements, summaries, historical evaluations, and
-                            other features.
+                        <li class="m-5 text-lg">Predictive Model: We trained one predictive model pertaining to a number
+                            of different factors (such as sentiment, predicted political bias, etc.) to offer the LLM
+                            more
+                            context regarding the claim</li>
+                        <li class="m-5 text-lg">Evidence retrieval: We conduct a nearest-neighbors search across a
+                            knowledge
+                            database built from news articles from reliable sources to retrieve sentences with high
+                            semantic similarity to the input claim. We also conduct a separate semantic search across a
+                            database of previously fact-checked claims to find semantically similar claims and their
+                            fact-check rating.
+                        </li>
+                        <li class="m-5 text-lg">LLM: The claim, the results from predictive models, and the set of
+                            evidence (news excerpts and previous claims) are passed into LLM, which generates a
+                            prediction and
+                            explanation.
                         </li>
                     </ul>
-                    <h2 class=" font-bold text-3xl mt-4">Method</h2>
-                    <ul class="list-disc">
-                        <li class="m-5">Enrichment</li>
-                        <li class="m-5">Evidence Retrieval</li>
-                        <li class="m-5">Predictive Model</li>
-                        <li class="m-5">Generative Model</li>
-                    </ul>
-                    <h2 class=" font-bold text-3xl mt-4">Result</h2>
-                    <p class="mt-5">TODO</p>
-                    <h2 class=" font-bold text-3xl mt-4">Conclusion</h2>
-                    <p class="mt-5">TODO</p>
+
+                    <p class="mt-5 text-lg">In the prompt to our LLM, we provide the results of these models, the
+                        retrieved
+                        evidence, previous fact-checked claims and their ratings, the descriptions of the target labels,
+                        and examples of each target label
+                    </p>
+
+                    <h2 class="font-bold text-3xl mt-10">Data</h2>
+                    <div class="border-b-2 w-full border-red-200 my-3"></div>
+                    <p class="mt-5 text-lg">The main sources of data we used to build our pipeline are a set of
+                        fact-checked
+                        claims from PolitiFact.com and news articles scraped from NPR and CNN.
+                    </p>
+                    <details class="mt-5 text-lg">
+                        <summary class="text-red-300">Claim data</summary>
+                        <p class="mt-5 text-lg">We scraped a dataset of 25,615 fact-checked claims from PolitiFact.com,
+                            which we used to build our knowledge database and train various predictive models. For each
+                            claim, the dataset contains 10 attributes of metadata, including the speaker's name, the
+                            speaker's past fact-checks, the date of the claim, a summary of relevant context, and other
+                            features. We used all the claims from prior to 2022 to build our database of previous
+                            fact-checks, and withheld the claims from 2022 and later for evaluation. This dataset was
+                            used to build select predictive models.
+                        </p>
+                    </details>
+
+                    <details class="mt-5 text-lg">
+                        <summary class="text-red-300">News data</summary>
+                        <p class="mt-5 text-lg">We scraped a selection of news articles from NPR's archive (articles
+                            from between early-2022 to early-2023) and CNN (late 2023), which we divided into one to two
+                            sentence chunks and used in our vector database.
+                        </p>
+                    </details>
+
+                    <h2 class="font-bold text-3xl mt-10">Results & Discussion</h2>
+                    <div class="border-b-2 w-full border-red-200 my-3"></div>
+                    <p class="mt-5 text-lg">We evaluated a number of different implementations of the pipeline, with
+                        slight
+                        differences in the factors we included in each. To avoid evaluating it on data that could be
+                        found within the database of previous fact-checks, we only evaluated it on claims made in 2022
+                        and later.
+                    </p>
+                    <p class="mt-5 text-lg">Below are relevant results from our trials:
+                    </p>
+                    <img class="mt-5" src="./figure/trials_table_cropped.png" alt="Trials Table Image">
+                    <p class="mt-5 text-lg">Our final model was one which used the retrieved evidence/fact-checks, and
+                        involved
+                        a very detailed prompt. We re-ran the trial multiple times and saw that Gemini's responses tend
+                        to vary quite a bit between trials, even for identical prompts. As a result, there was quite a
+                        bit of variance in the performance of the pipeline, and its accuracy ranged from 53% to 30% on
+                        the six-way classification task.
+                    </p>
+
+                    <p class="mt-10 text-lg">Below is the accuracy according to each label, taken from our best test
+                        run:</p>
+                    <img class="mt-5" src="./figure/gemini_53_results.png" alt="Gemini Results Imgae">
+
+                    <p class="mt-5 text-lg">We can see that the pipeline was quite good at classifying claims of certain
+                        labels,
+                        namely "mostly-true" and “pants-on-fire” claims. The fact that it performs well on
+                        "pants-on-fire" claims is encouraging, since this means it's able to successfully identify
+                        deliberate attempts to misinform over 80% of the time. We also see that it performs abysmally on
+                        some labels (barely-true), but when we take a look at the distribution of predictions (split by
+                        the true label), the result is somewhat encouraging.
+                    </p>
+                    <img class="mt-5" src="./figure/preds_dist_53.png" alt="Prediction Distribution Image">
+                    <p class="mt-5 text-lg">As we can see, the model has trouble distinguishing between "nearby" labels.
+                        For
+                        example, it predicted “half-true” over 80% of the time for claims which were “barely-true”. This
+                        is an understandable mistake due to the fact that these labels are adjacent, and even to humans,
+                        the difference between them is somewhat subjective. It also tended to be overzealous when it
+                        came to rating claims as "pants-on-fire", as it gave this label to nearly 60% of claims that
+                        should've simply been “false”. With this in mind, the result isn't as bad as it seems at first
+                        glance, but the low overall accuracy and extreme variation between responses across trials does
+                        indicate that the model requires some tuning before it could be used in a reliable fact-check
+                        pipeline.
+                    </p>
+
+                    <h2 class="font-bold text-3xl mt-10">References</h2>
+                    <div class="border-b-2 w-full border-red-200 my-3"></div>
+                    <p class="text-lg mt-5">[1] Abdullah-All-Tanvir, Ehesas Mia Mahir, Saima Akhter, and Mohammad
+                        Rezwanul Huq: <a class="text-red-300"
+                            href="https://ieeexplore.ieee.org/document/8843612">"Detecting Fake News using Machine
+                            Learning and Deep Learning Algorithms"</a>, 2019,
+                        7th International Conference on Smart Computing Communications (ICSCC) </p>
+                    <p class="mt-5 text-lg">[2] Alhindi, Tariq, Savvas Petridis, and Smaranda Muresan: "Where is your
+                        Evidence: Improving Fact-checking by Justification Modeling", 2018, Proceedings of the First
+                        Workshop on Fact Extraction and VERification (FEVER)</p>
+                    <p class="mt-5 text-lg">[3] B, Athira A, S D Madhu Kumar, and Anu Mary Chacko: "Towards Smart Fake
+                        News Detection Through Explainable AI", 2022</p>
+                    <p class="mt-5 text-lg">[4] Choudhary, Anshika, and Anuja Arora: <a class="text-red-300"
+                            href="https://linkinghub.elsevier.com/retrieve/pii/S095741742030909X">"Linguistic feature
+                            based learning
+                            model for fake news detection and classification"</a>, 2021, Expert Systems with
+                        Applications 169,
+                        p. 114171</p>
+                    <p class="mt-5 text-lg">[5] DeHaven, Mitchell, and Stephen Scott: "BEVERS: A General, Simple, and
+                        Performant Framework for Automatic Fact Verification", 2023</p>
+                    <p class="mt-5 text-lg">[6] Gebhard, Lukas, and Felix Hamborg: <a class="text-red-300"
+                            href="https://dl.acm.org/doi/10.1145/3383583.3398567">The POLUSA Dataset: 0.9M Political
+                            News Articles Balanced by Time and Outlet Popularity"</a>, 2020, Proceedings of the ACM/IEEE
+                        Joint
+                        Conference on Digital Libraries</p>
+                    <p class="mt-5 text-lg">[7] Hu, Edward J., Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi
+                        Li, Shean Wang, Lu Wang, and Weizhu Chen: "LoRA: Low-Rank Adaptation of Large Language Models",
+                        2021</p>
+                    <p class="mt-5 text-lg">[8] Huang, Jie, and Kevin Chen-Chuan Chang: <a class="text-red-300"
+                            href="https://aclanthology.org/2023.findings-acl.67/">"Towards Reasoning in Large
+                            Language Models: A Survey"</a>, 2023, Findings of the Association for Computational
+                        Linguistics: ACL
+                        2023</p>
+                    <p class="mt-5 text-lg">[9] Jawahar, Ganesh, Muhammad Abdul-Mageed, and Laks V. S. Lakshmanan:
+                        "Automatic Detection of Entity-Manipulated Text using Factual Knowledge", 2022</p>
+                    <p class="mt-5 text-lg">[10] Liao, Hao, Jiahao Peng, Zhanyi Huang, Wei Zhang, Guanghua Li, Kai Shu,
+                        and Xing Xie: <a class="text-red-300"
+                            href="https://dl.acm.org/doi/10.1145/3580305.3599873">"MUSER: A MUlti-Step Evidence
+                            Retrieval Enhancement Framework for Fake News
+                            Detection"</a>, 2023, Proceedings of the 29th ACM SIGKDD Conference on Knowledge Discovery
+                        and Data
+                        Mining</p>
+                    <p class="mt-5 text-lg">[11] Popat, Kashyap, Subhabrata Mukherjee, Andrew Yates, and Gerhard Weikum:
+                        "DeClarE: Debunking Fake News and False Claims using Evidence-Aware Deep Learning", 2018</p>
+                    <p class="mt-5 text-lg">[12] Sarrouti, Mourad, Asma Ben Abacha, Yassine Mrabet, and Dina
+                        Demner-Fushman: <a class="text-red-300"
+                            href="https://aclanthology.org/2021.findings-emnlp.297/">"Evidence-based Fact-Checking of
+                            Health-related Claims"</a>, 2021, Findings of the
+                        Association for Computational Linguistics: EMNLP 2021</p>
+                    <p class="mt-5 text-lg">[13] Vlachos, Andreas, and Sebastian Riedel: <a class="text-red-300"
+                            href="https://aclanthology.org/W14-2508/">"Fact Checking: Task definition
+                            and dataset construction"</a>, 2014, Proceedings of the ACL 2014 Workshop on Language
+                        Technologies
+                        and Computational Social Science</p>
+                    <p class="mt-5 text-lg">[14] Wang, William Yang: <a class="text-red-300"
+                            href="https://aclanthology.org/P17-2067/">""Liar, Liar Pants on Fire": A New Benchmark
+                            Dataset for Fake News Detection"</a>, 2017, Proceedings of the 55th Annual Meeting of the
+                        Association for Computational Linguistics (Volume 2: Short Papers)</p>
                 </div>
             </div>
-            <div class="col-span-3">
+            <div class="col-span-3 text-red-300 font-bold">
                 <div class="top-10 h-[60vh] sticky border p-5 border-red-200 rounded-lg">
-                    <span class="text-white ">References</span>
-                    <div class="text-white border-b-2 w-full border-black  my-3"></div>
-                    <span class="text-white ">Sample</span>
-                    <div class="text-white border-b-2 w-full border-red-200 my-3"></div>
+                    <span class="text-white text-3xl">Learn More</span>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <a class="text-lg" href="https://factcheck-app-3jgsib2xaq-uc.a.run.app/">🔗 Fact Check Demo</a>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <a class="text-lg" href="https://github.com/seanjiang-0416/DSC-180B-pipeline">🔗 Github Repo</a>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <a class="text-lg"
+                        href="https://drive.google.com/file/d/12_kTx-vAPaNtobbtvt7amETbPVn9E4QL/view?usp=sharing">🔗
+                        Poster</a>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <div class="border-b-2 w-full border-black my-3 mt-8"></div>
+                    <a class="text-lg"
+                        href="https://drive.google.com/file/d/1UbjoDOITwBHVo10F-gQ0zKVVKWEnmw6o/view?usp=sharing">🔗
+                        Report</a>
+
                 </div>
             </div>
         </div>
@@ -93,7 +248,8 @@
     <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-16">
 
         <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-            <p class="text-xs leading-5 text-gray-400">&copy; HDSI Capstone 2024 B09-1.</p>
+            <p class="text-xs leading-5 text-gray-400">&copy; UC San Diego, Halıcıoğlu Data Science Institute, 2024
+                Capstone</p>
         </div>
     </div>
 </footer>
